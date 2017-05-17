@@ -1,20 +1,22 @@
-<p id="notice"><%= notice %></p>
+<div class="titles">Current Leads</div><br>
+<center>
+<h4 class="ifs">Active Lead Count: <%= @leads.count %></h4>
+  <%= link_to 'New Lead', new_lead_path %>
+<br><br>
 
-<h1>Listing Leads</h1>
-
-<table>
+<table class="table table-striped table-bordered" style="width: 95%">
   <thead>
     <tr>
       <th>Status</th>
-      <th>Name</th>
+      <th>Client Name</th>
       <th>Phone</th>
       <th>Email</th>
-      <th>Last contact</th>
+      <th>Last Contact</th>
       <th>Area</th>
       <th>Budget</th>
       <th>Beds</th>
       <th>Notes</th>
-      <th colspan="3"></th>
+      <th colspan="3">Actions</th>
     </tr>
   </thead>
 
@@ -23,21 +25,18 @@
       <tr>
         <td><%= lead.status %></td>
         <td><%= lead.name %></td>
-        <td><%= lead.phone %></td>
+        <td><%= number_to_phone(lead.phone) %></td>
         <td><%= lead.email %></td>
         <td><%= lead.last_contact %></td>
         <td><%= lead.area %></td>
         <td><%= lead.budget %></td>
         <td><%= lead.beds %></td>
         <td><%= lead.notes %></td>
-        <td><%= link_to 'Show', lead %></td>
-        <td><%= link_to 'Edit', edit_lead_path(lead) %></td>
-        <td><%= link_to 'Destroy', lead, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>Deal</td>
+        <td>Kill</td>
+        <td>Referral</td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Lead', new_lead_path %>
+</center>
